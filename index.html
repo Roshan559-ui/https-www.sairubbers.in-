@@ -3,16 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sai Rubber Industries - Order Portal</title>
+    <title>Sai Rubber Industries - Container Profile Order Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Custom style for selected product card */
         .product-card.selected {
             border-color: #2563eb;
             background-color: #eff6ff;
-            ring: 2px;
-            ring-color: #2563eb;
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
         }
     </style>
 </head>
@@ -20,7 +18,7 @@
 
     <header class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white py-12 px-4 text-center shadow-lg">
         <h1 class="text-3xl md:text-5xl font-bold tracking-tight">SAI RUBBER INDUSTRIES</h1>
-        <p class="mt-2 text-blue-100 text-lg">Premium Quality Sponge Rubber Tubes & Sleeves</p>
+        <p class="mt-2 text-blue-100 text-lg">Premium Quality Container & Heavy Duty Rubber Profiles</p>
         <div class="mt-4 inline-block bg-blue-600 text-xs px-3 py-1 rounded-full uppercase font-semibold tracking-wider">
             Official IndiaMart Order Portal
         </div>
@@ -31,30 +29,48 @@
             
             <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
                 <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2">
-                    <i class="fa-solid fa-layer-group text-blue-600"></i> 1. Select Your Product / Item
+                    <i class="fa-solid fa-shapes text-blue-600"></i> 1. Select Container Rubber Profile Shape
                 </h3>
-                <p class="text-sm text-gray-500 mb-6">Kripya wo item chunein jiska aap order dena chahte hain:</p>
+                <p class="text-sm text-gray-500 mb-6">Apni requirement ke mutabiq sahi Container Profile chunein:</p>
                 
                 <input type="hidden" id="selectedItemName" required>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     
-                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Sponge Rubber Tube')">
-                        <img src="https://placehold.co/300x200/png?text=Sponge+Tube" alt="Sponge Rubber Tube" class="w-full h-40 object-cover rounded-lg mb-4 border">
-                        <h4 class="font-bold text-gray-800 text-lg">Sponge Rubber Tube</h4>
-                        <p class="text-xs text-gray-500 mt-1">Best for insulation and industrial piping cushioning.</p>
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Shipping Container Door Gasket (J-Shape)')">
+                        <img src="https://placehold.co/300x200/2563eb/ffffff?text=J-Shape+Gasket" alt="J-Shape Door Gasket" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-base">Container Door Gasket (J-Shape)</h4>
+                        <p class="text-xs text-gray-500 mt-1">Standard shipping container door seal for weather protection.</p>
                     </div>
 
-                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Sponge Rubber Sleeve')">
-                        <img src="https://placehold.co/300x200/png?text=Rubber+Sleeve" alt="Sponge Rubber Sleeve" class="w-full h-40 object-cover rounded-lg mb-4 border">
-                        <h4 class="font-bold text-gray-800 text-lg">Sponge Rubber Sleeve</h4>
-                        <p class="text-xs text-gray-500 mt-1">Flexible protective sleeves for rollers and handles.</p>
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Heavy Duty EPDM Container Profile (H-Shape)')">
+                        <img src="https://placehold.co/300x200/2563eb/ffffff?text=H-Shape+Profile" alt="H-Shape Profile" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-base">EPDM Container Profile (H-Shape)</h4>
+                        <p class="text-xs text-gray-500 mt-1">High-resistance interlocking profile for industrial gates.</p>
                     </div>
 
-                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Custom EPDM Sponge Profile')">
-                        <img src="https://placehold.co/300x200/png?text=EPDM+Profile" alt="Custom EPDM Profile" class="w-full h-40 object-cover rounded-lg mb-4 border">
-                        <h4 class="font-bold text-gray-800 text-lg">EPDM Sponge Profile</h4>
-                        <p class="text-xs text-gray-500 mt-1">Customized sealing profiles for heavy machinery.</p>
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Double Door Container Rubber Seal')">
+                        <img src="https://placehold.co/300x200/2563eb/ffffff?text=Double+Door+Seal" alt="Double Door Seal" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-base">Double Door Container Seal</h4>
+                        <p class="text-xs text-gray-500 mt-1">Dual-sealing profile for cargo containers and trucks.</p>
+                    </div>
+
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Sponge Container Rubber Strip')">
+                        <img src="https://placehold.co/300x200/2563eb/ffffff?text=Sponge+Strip" alt="Sponge Strip" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-base">Sponge Rubber Strip Profile</h4>
+                        <p class="text-xs text-gray-500 mt-1">Soft cushion profile for airtight and watertight scaling.</p>
+                    </div>
+
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Custom Extruded Rubber Profile')">
+                        <img src="https://placehold.co/300x200/2563eb/ffffff?text=Custom+Profile" alt="Custom Profile" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-base">Custom Extruded Profile</h4>
+                        <p class="text-xs text-gray-500 mt-1">Tailor-made designs based on buyer's specific engineering drawings.</p>
+                    </div>
+
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Refrigerator / Cold Storage Door Profile')">
+                        <img src="https://placehold.co/300x200/2563eb/ffffff?text=Cold+Storage+Profile" alt="Cold Storage Profile" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-base">Cold Storage Door Profile</h4>
+                        <p class="text-xs text-gray-500 mt-1">Specially formulated low-temperature resistant rubber.</p>
                     </div>
 
                 </div>
@@ -64,20 +80,20 @@
                 
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 h-fit">
                     <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-ruler-combined text-blue-600"></i> 2. Size & Quantity
+                        <i class="fa-solid fa-ruler-combined text-blue-600"></i> 2. Specifications
                     </h3>
                     <div class="space-y-4">
                         <div>
-                            <label class="block text-xs font-medium text-gray-600 mb-1">Inner Diameter (ID) *</label>
-                            <input type="text" id="innerDia" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 10mm">
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Dimensions / Size (Width x Height) *</label>
+                            <input type="text" id="innerDia" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 50mm x 20mm">
                         </div>
                         <div>
-                            <label class="block text-xs font-medium text-gray-600 mb-1">Wall Thickness *</label>
-                            <input type="text" id="thickness" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 5mm">
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Material Type (EPDM / Natural Rubber) *</label>
+                            <input type="text" id="thickness" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. EPDM Black">
                         </div>
                         <div>
-                            <label class="block text-xs font-medium text-gray-600 mb-1">Quantity (Meters/Pcs) *</label>
-                            <input type="number" id="quantity" required min="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 500">
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Required Quantity (Meters) *</label>
+                            <input type="number" id="quantity" required min="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 200">
                         </div>
                     </div>
                 </div>
@@ -91,7 +107,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-medium text-gray-600 mb-1">Company Name *</label>
-                                <input type="text" id="companyName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="ABC Enterprises">
+                                <input type="text" id="companyName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. Sai Rubber Industries">
                             </div>
                             <div>
                                 <label class="block text-xs font-medium text-gray-600 mb-1">Contact Person Name *</label>
@@ -102,7 +118,7 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-medium text-gray-600 mb-1">Mobile Number *</label>
-                                <input type="tel" id="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="10-digit mobile">
+                                <input type="tel" id="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="10-digit mobile number">
                             </div>
                             <div>
                                 <label class="block text-xs font-medium text-gray-600 mb-1">Email Address</label>
@@ -111,8 +127,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-xs font-medium text-gray-600 mb-1">Full Delivery Address *</label>
-                            <textarea id="address" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Enter complete address with Pincode"></textarea>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Full Delivery Address (With Pincode) *</label>
+                            <textarea id="address" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Enter full shipping address..."></textarea>
                         </div>
 
                         <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2 cursor-pointer mt-2">
@@ -126,29 +142,23 @@
     </main>
 
     <script>
-        // ⚠️ APNA NAYA GOOGLE WEB APP URL YAHAN DAALEIN
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwju2FrNDH6ixLGh60rdlU96L4gLOejOYPRAbqHhk3IotLk9VjcIC7dNrVdJx-hzqVJ/exec";
+        // ⚠️ APNA GOOGLE WEB APP URL YAHAN LIYEIN (Jo Apps Script se mila tha)
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMLjaNsRaAO0ikCF2BvuPZGiukSm1-L4Hb3QifNG_G3HFV5oeUP39ka8PHyOeXlk0/exec";
 
-        // Card Selection Logic
         function selectProduct(element, productName) {
-            // Pehle se selected card se class hatana
             const cards = document.querySelectorAll('.product-card');
             cards.forEach(card => card.classList.remove('selected'));
             
-            // Current card ko select karna
             element.classList.add('selected');
-            
-            // Hidden input mein value daalna
             document.getElementById('selectedItemName').value = productName;
         }
 
-        // Form Submit Handle
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             const selectedItem = document.getElementById('selectedItemName').value;
             if(!selectedItem) {
-                alert("Kripya upar diye gaye products mein se koi ek picture select karein!");
+                alert("Kripya upar se container profile ka ek shape/picture select karein!");
                 return;
             }
 
@@ -178,14 +188,13 @@
                 body: JSON.stringify(orderData)
             })
             .then(response => {
-                alert('🎉 Badhai ho! Aapka order successfully save ho gaya hai.');
+                alert('🎉 Thank you! Container Profile order details Google Sheet mein save ho gayi hain.');
                 document.getElementById('orderForm').reset();
-                // Selection remove karna reset ke baad
                 document.querySelectorAll('.product-card').forEach(card => card.classList.remove('selected'));
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Kuch dikkat aayi, kripya dobara check karein.');
+                alert('Kuch dikkat aayi, kripya dobara koshish karein.');
             })
             .finally(() => {
                 submitBtn.disabled = false;
