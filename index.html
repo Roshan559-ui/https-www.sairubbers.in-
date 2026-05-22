@@ -6,6 +6,15 @@
     <title>Sai Rubber Industries - Order Portal</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom style for selected product card */
+        .product-card.selected {
+            border-color: #2563eb;
+            background-color: #eff6ff;
+            ring: 2px;
+            ring-color: #2563eb;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 font-sans antialiased">
 
@@ -17,107 +26,140 @@
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-4 py-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
-        
-        <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 diverted-card">
-            <div class="aspect-video bg-gray-100 rounded-xl flex items-center justify-center mb-6 overflow-hidden border">
-                <i class="fa-solid fa-industry text-5xl text-gray-400"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-800">Sponge Rubber Tube</h2>
-            <p class="text-sm text-gray-500 mt-1">Product Code: SRT-6546504</p>
+    <main class="max-w-6xl mx-auto px-4 py-8">
+        <form id="orderForm" class="space-y-8">
             
-            <div class="mt-6 space-y-4">
-                <div class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <div>
-                        <h4 class="font-semibold text-gray-700 text-sm">High Elasticity</h4>
-                        <p class="text-xs text-gray-500">Excellent cushioning and thermal insulation properties.</p>
+            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-blue-600"></i> 1. Select Your Product / Item
+                </h3>
+                <p class="text-sm text-gray-500 mb-6">Kripya wo item chunein jiska aap order dena chahte hain:</p>
+                
+                <input type="hidden" id="selectedItemName" required>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Sponge Rubber Tube')">
+                        <img src="https://placehold.co/300x200/png?text=Sponge+Tube" alt="Sponge Rubber Tube" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-lg">Sponge Rubber Tube</h4>
+                        <p class="text-xs text-gray-500 mt-1">Best for insulation and industrial piping cushioning.</p>
                     </div>
-                </div>
-                <div class="flex items-start gap-3">
-                    <i class="fa-solid fa-circle-check text-green-500 mt-1"></i>
-                    <div>
-                        <h4 class="font-semibold text-gray-700 text-sm">Custom Sizes</h4>
-                        <p class="text-xs text-gray-500">Available in multiple diameters and thicknesses.</p>
+
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Sponge Rubber Sleeve')">
+                        <img src="https://placehold.co/300x200/png?text=Rubber+Sleeve" alt="Sponge Rubber Sleeve" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-lg">Sponge Rubber Sleeve</h4>
+                        <p class="text-xs text-gray-500 mt-1">Flexible protective sleeves for rollers and handles.</p>
                     </div>
+
+                    <div class="product-card border-2 border-gray-200 rounded-xl p-4 cursor-pointer transition hover:border-blue-400 bg-white" onclick="selectProduct(this, 'Custom EPDM Sponge Profile')">
+                        <img src="https://placehold.co/300x200/png?text=EPDM+Profile" alt="Custom EPDM Profile" class="w-full h-40 object-cover rounded-lg mb-4 border">
+                        <h4 class="font-bold text-gray-800 text-lg">EPDM Sponge Profile</h4>
+                        <p class="text-xs text-gray-500 mt-1">Customized sealing profiles for heavy machinery.</p>
+                    </div>
+
                 </div>
             </div>
-        </div>
 
-        <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
-            <h3 class="text-xl font-bold text-gray-800 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-file-invoice text-blue-600"></i> Place Your Bulk Order
-            </h3>
-            
-            <form id="orderForm" class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Company Name *</label>
-                        <input type="text" id="companyName" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. ABC Enterprises">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Contact Person Name *</label>
-                        <input type="text" id="buyerName" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Your Name">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 h-fit">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-ruler-combined text-blue-600"></i> 2. Size & Quantity
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Inner Diameter (ID) *</label>
+                            <input type="text" id="innerDia" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 10mm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Wall Thickness *</label>
+                            <input type="text" id="thickness" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 5mm">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Quantity (Meters/Pcs) *</label>
+                            <input type="number" id="quantity" required min="1" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="e.g. 500">
+                        </div>
                     </div>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Mobile Number *</label>
-                        <input type="tel" id="phone" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="10-digit mobile">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" id="email" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="name@company.com">
+                <div class="lg:col-span-2 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2">
+                        <i class="fa-solid fa-address-card text-blue-600"></i> 3. Delivery & Contact Details
+                    </h3>
+                    
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Company Name *</label>
+                                <input type="text" id="companyName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="ABC Enterprises">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Contact Person Name *</label>
+                                <input type="text" id="buyerName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Your Name">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Mobile Number *</label>
+                                <input type="tel" id="phone" required class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="10-digit mobile">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-medium text-gray-600 mb-1">Email Address</label>
+                                <input type="email" id="email" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="name@company.com">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-medium text-gray-600 mb-1">Full Delivery Address *</label>
+                            <textarea id="address" required rows="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none text-sm" placeholder="Enter complete address with Pincode"></textarea>
+                        </div>
+
+                        <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2 cursor-pointer mt-2">
+                            <i class="fa-solid fa-circle-check"></i> <span id="btnText">Confirm & Book Order</span>
+                        </button>
                     </div>
                 </div>
 
-                <hr class="border-gray-100">
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Inner Diameter (ID) *</label>
-                        <input type="text" id="innerDia" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. 10mm">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Wall Thickness *</label>
-                        <input type="text" id="thickness" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. 5mm">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-medium text-gray-700 mb-1">Quantity *</label>
-                        <input type="number" id="quantity" required min="1" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="e.g. 500">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700 mb-1">Delivery Address *</label>
-                    <textarea id="address" required rows="3" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none" placeholder="Full shipping address with Pincode"></textarea>
-                </div>
-
-                <button type="submit" id="submitBtn" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition shadow-md flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="fa-solid fa-paper-plane"></i> <span id="btnText">Submit Order</span>
-                </button>
-            </form>
-        </div>
+            </div>
+        </form>
     </main>
 
     <script>
-        // ⚠️ YAHA APNA GOOGLE WEB APP URL PASTE KAREIN
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzivWx1FYijDCy2RuTDfKtJ1zMAi8fvHCZ2UqbkC0aOn4Up6TmqPVVqlJvPcrrWXeSy/exec";
+        // ⚠️ APNA NAYA GOOGLE WEB APP URL YAHAN DAALEIN
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwju2FrNDH6ixLGh60rdlU96L4gLOejOYPRAbqHhk3IotLk9VjcIC7dNrVdJx-hzqVJ/exec";
 
+        // Card Selection Logic
+        function selectProduct(element, productName) {
+            // Pehle se selected card se class hatana
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => card.classList.remove('selected'));
+            
+            // Current card ko select karna
+            element.classList.add('selected');
+            
+            // Hidden input mein value daalna
+            document.getElementById('selectedItemName').value = productName;
+        }
+
+        // Form Submit Handle
         document.getElementById('orderForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
+            const selectedItem = document.getElementById('selectedItemName').value;
+            if(!selectedItem) {
+                alert("Kripya upar diye gaye products mein se koi ek picture select karein!");
+                return;
+            }
 
             const submitBtn = document.getElementById('submitBtn');
             const btnText = document.getElementById('btnText');
             
-            // Button ko loading state mein daalna
             submitBtn.disabled = true;
-            btnText.innerText = "Processing Your Order...";
-            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
+            btnText.innerText = "Saving Order to Sheet...";
 
-            // Data Object
             const orderData = {
+                itemName: selectedItem,
                 company: document.getElementById('companyName').value,
                 name: document.getElementById('buyerName').value,
                 phone: document.getElementById('phone').value,
@@ -128,29 +170,26 @@
                 address: document.getElementById('address').value
             };
 
-            // Google Sheets par data bhejna (Background Fetch)
             fetch(SCRIPT_URL, {
                 method: 'POST',
-                mode: 'no-cors', // Security constraints bypass karne ke liye
+                mode: 'no-cors',
                 cache: 'no-cache',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(orderData)
             })
             .then(response => {
-                alert('🎉 Thank you! Aapka order successfully receive ho gaya hai.');
+                alert('🎉 Badhai ho! Aapka order successfully save ho gaya hai.');
                 document.getElementById('orderForm').reset();
+                // Selection remove karna reset ke baad
+                document.querySelectorAll('.product-card').forEach(card => card.classList.remove('selected'));
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Kuch dikkat aayi, kripya dobara koshish karein.');
+                alert('Kuch dikkat aayi, kripya dobara check karein.');
             })
             .finally(() => {
-                // Button reset karna
                 submitBtn.disabled = false;
-                btnText.innerText = "Submit Order";
-                submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
+                btnText.innerText = "Confirm & Book Order";
             });
         });
     </script>
